@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gregorian to Hebrew Date Converter</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+  <h1>Gregorian to Hebrew Date Converter</h1>
+  <form id="dateConverterForm">
+  <label for="gregDate">Insert Gregorian Date:</label>
+  <div class="input-container">
+  <input type="date" id="gregDate" name="gregDate">
+  </div>  
+  <button class="glow-btn" style="vertical-align:middle"><span> Convert to Hebrew </span></button>
+  <div id="result"></div>
+  </form>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('#dateConverterForm').submit(function(e) {
+        e.preventDefault();
+        
+        var gregorianDate = $('#gregDate').val();
+        
+        if (!gregorianDate) {
+          $('#result').text('Gregorian Date: Undefined').addClass('error');
+          return;
+        }
+        
+        $.ajax({
+          url: 'https://www.hebcal.com/converter?cfg=json&gy=' + gregorianDate.substring(0, 4) + '&gm=' + gregorianDate.substring(5, 7) + '&gd=' + gregorianDate.substring(8),
+          dataType: 'jsonp',
+          success: function(data) {
+            var hebrewDate = data.hebrew;
+            $('#result').text('Hebrew Date: ' + hebrewDate).removeClass('error');
+          },
+          error: function() {
+            $('#result').text('Error occurred during conversion.').addClass('error');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
