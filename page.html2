@@ -1,4 +1,25 @@
-<script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gregorian to Hebrew Date Converter</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+  <h1>Gregorian to Hebrew Date Converter</h1>
+  <form id="dateConverterForm">
+  <label for="gregDate">Insert Gregorian Date:</label>
+  <div class="input-container">
+  <input type="date" id="gregDate" name="gregDate">
+  </div>  
+  <button class="glow-btn" style="vertical-align:middle"><span> Convert to Hebrew </span></button>
+  <div id="result"></div>
+  </form>
+  </div>
+
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('dateConverterForm');
       const resultDiv = document.getElementById('result');
@@ -33,3 +54,8 @@
       });
     });
   </script>
+</body>
+</html>
+
+
+
