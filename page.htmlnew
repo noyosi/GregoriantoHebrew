@@ -1,1 +1,23 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gregorian to Hebrew Date Converter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gregorian to Hebrew Date Converter</h1>
+    <form id="dateConverterForm">
+      <label for="gregDate">Insert Gregorian Date:</label>
+      <div class="input-container">
+        <input type="date" id="gregDate" name="gregDate" required>
+      </div>
+      <button type="submit" class="glow-btn">Convert to Hebrew</button>
+      <div id="result" class="result"></div>
+    </form>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>
